@@ -25,8 +25,9 @@
       <div id="movies"></div>
     </div>
     <script>
-      $(function(){
+      $(function() {
         var movies = new Movies(movieData);
+        console.log(movies);
         new AppView({el: $('#main'), collection: movies}).render();
       });
     </script>
