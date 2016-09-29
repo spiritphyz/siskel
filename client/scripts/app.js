@@ -14,15 +14,20 @@ var Movies = Backbone.Collection.extend({
 
   model: Movie,
 
-  initialize: function(data) {
+  initialize: function() {
     //your code here
+    console.log(this);
+    this.on('change', function() {
+      console.log('inside on event', this);
+      this.sort();
+    }, this);
   },
 
   comparator: 'title',
 
   sortByField: function(field) {
     this.comparator = field;
-    this.sort();
+    this.trigger('change'); 
   }
 
 });
